@@ -26,7 +26,7 @@ services:
       - pg_data:/var/lib/postgresql/data
   app:
     container_name: app
-    build: ./app/Navisite/.
+    image: msadeqsirjani/navisite-app:latest
     restart: always
     deploy:
         resources:
@@ -44,7 +44,7 @@ services:
       - ASPNETCORE_URLS=http://+:5240
   reverse-proxy:
     container_name: reverse-proxy
-    build: ./nginx/.
+    image: msadeqsirjani/navisite-reverse-proxy:latest
     restart: always
     deploy:
         resources:
