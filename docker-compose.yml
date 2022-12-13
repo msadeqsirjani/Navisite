@@ -1,7 +1,7 @@
 version: '3.9'
 services:
-  navisite-database:
-    container_name: navisite-database
+  database:
+    container_name: database
     image: postgres
     restart: always
     deploy:
@@ -24,8 +24,8 @@ services:
       - '5432:5432'
     volumes:
       - pg_data:/var/lib/postgresql/data
-  navisite-app:
-    container_name: navisite-app
+  app:
+    container_name: app
     build: ./app/Navisite/.
     restart: always
     deploy:
@@ -42,8 +42,8 @@ services:
     environment:
       - ASPNETCORE_HTTP_PORT=https://+:5241
       - ASPNETCORE_URLS=http://+:5240
-  navisite-reverse-proxy:
-    container_name: navisite-reverse-proxy
+  reverse-proxy:
+    container_name: reverse-proxy
     build: ./nginx/.
     restart: always
     deploy:
@@ -57,7 +57,7 @@ services:
     ports:
       - 81:80
     depends_on:
-      - navisite-app 
+      - app 
 volumes:
   pg_data:
     driver: local
