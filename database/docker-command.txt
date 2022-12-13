@@ -1,1 +1,11 @@
-docker run --name basic-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=4y7sV96vA9wv46VR -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:latest
+# run postgres
+docker run -p 5432:5432 -d -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=strip_example -v pg_data:/var/lib/postgresql/data postgres
+
+# connect to postgres
+psql strip_example -h localhost -U postgres
+
+docker exec -it c7971640 psql -U postgres strip_example
+
+\l -> show database
+\c -> \c database_name
+\d -> show all tables
