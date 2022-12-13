@@ -7,6 +7,7 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.MapGet("/Ping", () => Results.Ok("Pong"))
