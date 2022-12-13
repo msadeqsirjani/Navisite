@@ -2,19 +2,40 @@ version: '3.9'
 services:
   navisite-database:
     container_name: navisite-database
-    image: postgres:latest
+    image: postgres
     restart: always
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 512M
+            reservations:
+              cpus: '0.25'
+              memory: 128M
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=strip_example
     ports:
       - '5432:5432'
-    volumes: 
-      - database:/var/lib/postgresql/data
+    volumes:
+      - pg_data:/var/lib/postgresql/data
   navisite-app:
     container_name: navisite-app
     build: ./app/Navisite/.
     restart: always
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 512M
+            reservations:
+              cpus: '0.25'
+              memory: 128M
     ports:
       - 5240:5240
       - 5241:5241
@@ -25,12 +46,18 @@ services:
     container_name: navisite-reverse-proxy
     build: ./nginx/.
     restart: always
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 512M
+            reservations:
+              cpus: '0.25'
+              memory: 128M
     ports:
       - 81:80
     depends_on:
-      - navisite-app
+      - navisite-app 
 volumes:
-  database:
+  pg_data:
     driver: local
-
-  
