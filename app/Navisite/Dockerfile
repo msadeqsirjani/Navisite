@@ -14,6 +14,7 @@ FROM build AS publish
 RUN dotnet publish "Navisite.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 EXPOSE 5240
+EXPOSE 5241
 
 FROM base AS final
 WORKDIR /app
