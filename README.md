@@ -342,5 +342,5 @@ Project Link: [https://github.com/msadeqsirjani/Navisite](https://github.com/msa
 
 <!-- Postgres -->
 
-[postgres]: https://img.shields.io/badge/postgres-%252300f.svg?style=for-the-badge&logo=mysql&logoColor=white
+[postgres]: https://img.shields.io/badge/Postgres-31648c.svg?style=for-the-badge&logo=Postgres&logoColor=white
 [postgres-url]: https://www.postgresql.org/
