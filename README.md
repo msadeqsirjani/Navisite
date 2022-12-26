@@ -198,9 +198,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
      - [ ] ... is the one we are going to use in this project.
 
 3. > Choose a Database image from [Docker Hub](https://hub.docker.com/) (Like: Elasticsearch, MySQL, MongoDB, etc.)
-   - **MySQL** is the one we are going to use in this project.
+   - **PostgreSQL** is the one we are going to use in this project.
    - Downloading Database Image From Docker Hub
-     - [ ] Downloading MySQL Image From Docker Hub
+     - [ ] Downloading PostgreSQL Image From Docker Hub
 
 - > _Note_ : The related image configuration must written in docker-compose.yml file that have these four features :
   >
