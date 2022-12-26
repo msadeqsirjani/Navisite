@@ -217,7 +217,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
    - [ ] Pushing The Built Image To Docker Hub
    - [ ] Puting Docker Hub Image Link In issue Phase 1
 
-See the [open issues](https://github.com/msadeqsirjani/Cloud-Computing-Project/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/msadeqsirjani/Navisite/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
