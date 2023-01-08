@@ -181,7 +181,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-1. > Choose a Webserver image from [Docker Hub](https://hub.docker.com/) (Like: Nginx, Apache, etc.)
+### Phase (1)
+
+1. > Choose a Web-Server image from [Docker Hub](https://hub.docker.com/) (Like: Nginx, Apache, etc.)
    - **Nginx** is the one we are going to use in this project.
    - Downloading WebServer Image From Docker Hub
      - [ ] Downloading Nginx Image From Docker Hub
@@ -215,7 +217,90 @@ _For more examples, please refer to the [Documentation](https://example.com)_
    - [ ] Writing docker-compose.yml File
 5. > Push the built image to Docker Hub
    - [ ] Pushing The Built Image To Docker Hub
-   - [ ] Puting Docker Hub Image Link In issue Phase 1
+   - [ ] Putting Docker Hub Image Link In issue Phase 1
+
+### Phase (2)
+
+In this phase, we plan to launch a self-hosted version of kubernetes together. We suggest you minikube.
+
+1. > At first, as always, we apply the update command
+```bash
+sudo apt-get update
+```
+
+2. > At first, as always, we apply the update command
+```bash
+sudo apt-get install curl
+```
+
+3. > In continuation of the previous case, the binary installation files are downloaded from the domains with the http tag, and what is better is to enter the following command as well.
+```bash
+sudo apt-get install apt-transport-https
+```
+
+4. > As you know, to install minikube, you must use the hypervisor feature and install a version of virtual box on your operating system. This can be done as follows
+```bash
+sudo apt install virtualbox virtualbox-ext-packs
+```
+
+5. > In this step, we download the minikube installation binary files
+```bash
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+```
+
+6. > In order to be able to apply the commands related to the execution of minikube, we must move the executable files to the following path.
+```bash
+sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+```
+
+7. > We give the necessary access to the executable files of minikube as follows.
+```bash
+sudo chmod 755 /usr/local/bin/minikube
+```
+
+8. > Now we have installed minikube and we can enter the following command in the command line to check the correctness of the program installation.
+```bash
+minikube version
+```
+
+9. > There are 3 ways to communicate with minikube. The most important and powerful method is to use command line commands or kubectl
+```bash
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+```
+> With the above command, we download the kubectl binary installation files.
+
+10. > The necessary access to the kubectl executable is given as follows
+```bash
+chmod +x ./kubectl
+```
+
+11. > We move the kubectl execution file to the execution path of other programs.
+```bash
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+
+12. > We have now installed kubectl. We can make sure of the correct performance by executing the following command
+```bash
+kubectl version -o json
+```
+
+13. > By running the following command, minikube will run on a virtualbox
+```bash
+minikube start
+```
+
+14. > You can connect to minikube using kubectl using the following commands
+```bash
+kubectl config view
+kubectl cluster-info
+kubectl get nodes
+```
+
+15. > At the end, you can get the necessary information from the latest status of minikube with the following command
+```bash
+minikube status
+```
+
 
 See the [open issues](https://github.com/msadeqsirjani/Navisite/issues) for a full list of proposed features (and known issues).
 
