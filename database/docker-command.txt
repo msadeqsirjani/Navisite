@@ -4,7 +4,7 @@ docker run -p 5432:5432 -d -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgr
 # connect to postgres
 psql strip_example -h localhost -U postgres
 
-docker exec -it c7971640 psql -U postgres strip_example
+docker exec -it process_id psql -U postgres strip_example
 
 \l -> show database
 \c -> \c database_name
