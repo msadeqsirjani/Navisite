@@ -1,5 +1,8 @@
 # build docker image
 docker build --rm -t msadeqsirjani/navisite-app:latest .
 
-# run local docker image
+# run local docker image locally
 docker run --rm -p 5240:5240 -p 5241:5241 -e ASPNETCORE_HTTP_PORT=https://+:5241 -e ASPNETCORE_URLS=http://+:5240 msadeqsirjani/navisite-app
+
+# run local docker image locally in a background
+docker run -d --rm -p 5240:5240 -p 5241:5241 -e ASPNETCORE_HTTP_PORT=https://+:5241 -e ASPNETCORE_URLS=http://+:5240 msadeqsirjani/navisite-app
